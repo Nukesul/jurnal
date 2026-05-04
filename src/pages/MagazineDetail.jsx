@@ -179,18 +179,31 @@ export default function MagazineDetail() {
       </div>
 
       {/* PDF VIEW */}
-      {magazine.pdf_url && (
-        <div className="mt-24">
-          <h2 className="text-2xl font-semibold mb-6">Онлайн просмотр</h2>
-          <div className="bg-black rounded-3xl overflow-hidden border border-white/10 h-[800px]">
-            <iframe
-              src={magazine.pdf_url}
-              className="w-full h-full"
-              title={magazine.title}
-            />
-          </div>
-        </div>
-      )}
+     {/* PDF VIEW — улучшенная версия */}
+{magazine.pdf_url && (
+  <div className="mt-24">
+    <div className="flex justify-between items-center mb-6">
+      <h2 className="text-2xl font-semibold">Онлайн просмотр</h2>
+      <a
+        href={magazine.pdf_url}
+        target="_blank"
+        rel="noreferrer"
+        className="text-amber-500 hover:underline flex items-center gap-1.5"
+      >
+        Открыть PDF напрямую <ExternalLink size={16} />
+      </a>
+    </div>
+
+    <div className="bg-zinc-950 rounded-3xl overflow-hidden border border-white/10 h-[800px]">
+      <iframe
+        src={`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(magazine.pdf_url)}`}
+        className="w-full h-full"
+        title={magazine.title}
+        sandbox="allow-scripts allow-same-origin allow-popups"
+      />
+    </div>
+  </div>
+)}
     </div>
   );
 }
