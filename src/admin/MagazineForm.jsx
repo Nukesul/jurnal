@@ -10,7 +10,7 @@ export default function MagazineForm({ magazine, onSuccess }) {
     long_description: '',
     pdf_url: '',
     cover: '',
-    rating: 0,           // ← добавили
+    rating: 0,
   });
 
   const [image, setImage] = useState(null);
@@ -60,29 +60,26 @@ export default function MagazineForm({ magazine, onSuccess }) {
     e.preventDefault();
 
     const imageUrl = await uploadFile(image, 'images');
-    const pdfUrl = await uploadFile(pdf, 'pdfs');
+    const uploadedPdfUrl = await uploadFile(pdf, 'pdfs');
 
     const newData = {
       ...form,
       cover: imageUrl || form.cover,
-      pdf_url: pdfUrl || form.pdf_url,
-      rating: Number(form.rating) || 0,   // ← гарантируем число
+      // Приоритет: если загрузили файл — используем его, иначе оставляем то, что в поле
+      pdf_url: uploadedPdfUrl || form.pdf_url,
+      rating: Number(form.rating) || 0,
     };
 
     if (magazine) {
-      // Редактирование
       const { error } = await supabase
         .from('magazines')
         .update(newData)
         .eq('id', magazine.id);
-
       if (error) console.error(error);
     } else {
-      // Создание
       const { error } = await supabase
         .from('magazines')
         .insert([newData]);
-
       if (error) console.error(error);
     }
 
@@ -156,7 +153,7 @@ export default function MagazineForm({ magazine, onSuccess }) {
         className="w-full p-4 rounded-2xl bg-zinc-800"
       />
 
-      {/* ⭐ Оценка при создании/редактировании */}
+      {/* ⭐ Оценка */}
       <div>
         <label className="block text-sm text-zinc-400 mb-2">
           Начальная оценка (0–5)
@@ -187,7 +184,7 @@ export default function MagazineForm({ magazine, onSuccess }) {
         />
       </div>
 
-      {/* PDF */}
+      {/* PDF Файл */}
       <div>
         <label className="block text-sm text-zinc-400 mb-2">PDF файл</label>
         <input
@@ -196,6 +193,25 @@ export default function MagazineForm({ magazine, onSuccess }) {
           onChange={(e) => setPdf(e.target.files[0])}
           className="w-full p-4 rounded-2xl bg-zinc-800 file:mr-4 file:py-2 file:px-6 file:rounded-xl file:border-0 file:bg-amber-500 file:text-black"
         />
+      </div>
+
+      {/* ← Новое поле: Прямая ссылка на PDF */}
+      <div>
+        <label className="block text-sm text-zinc-400 mb-2">
+          Или прямая ссылка на PDF (pdf_url)
+        </label>
+        <input
+          type="url"
+          name="pdf_url"
+          placeholder="https://example.com/files/magazine.pdf"
+          value={form.pdf_url}
+          onChange={handleChange}
+          className="w-full p-4 rounded-2xl bg-zinc-800"
+        />
+        <p className="text-xs text-zinc-500 mt-1">
+          Если загрузишь файл выше — он будет иметь приоритет. 
+          Это поле можно использовать для внешних ссылок.
+        </p>
       </div>
 
       <button
