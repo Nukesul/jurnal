@@ -27,7 +27,7 @@ export default function Home() {
     <main className="max-w-7xl mx-auto px-6 py-16">
       <div className="text-center mb-20">
         <h1 className="text-6xl md:text-7xl font-bold tracking-tighter magazine-title mb-4">
-          Современные журналы
+          журналы
         </h1>
       </div>
 
