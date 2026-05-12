@@ -288,18 +288,6 @@ export default function MagazineDetail() {
             </div>
           </div>
 
-          {/* Meta */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-[15px] border-t border-white/10 pt-10">
-            <div>
-              <span className="text-zinc-500">Издатель</span>
-              <p className="mt-1 font-medium">MAGNÉT Studio</p>
-            </div>
-            <div>
-              <span className="text-zinc-500">Год</span>
-              <p className="mt-1 font-medium">2025</p>
-            </div>
-          </div>
-
           <div className="pt-6 border-t border-white/10">
             <button className="flex items-center gap-3 text-zinc-400 hover:text-white transition">
               <Share2 className="w-5 h-5" />
