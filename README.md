@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Nursultan Mustapaev — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A futuristic, dark-themed developer portfolio built with React, Vite, Tailwind CSS, Framer Motion and React Three Fiber.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- **React 19 + Vite** — app shell and build tooling
+- **Tailwind CSS** — design tokens and utility styling (see `tailwind.config.js` for the color/type system)
+- **Framer Motion** — page-load choreography, scroll reveals, hover micro-interactions
+- **React Three Fiber / drei / Three.js** — the interactive 3D tech constellation in the hero section
+- **Lucide React** — icon set
 
-### `npm start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+npm run dev       # local dev server
+npm run build     # production build -> dist/
+npm run preview   # preview the production build
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project structure
 
-### `npm test`
+```
+src/
+  components/
+    ui/            # SectionHeading, GlassPanel, Reveal — shared building blocks
+    Loader.jsx     # boot-sequence loading screen
+    Navbar.jsx
+    Hero.jsx        HeroScene.jsx   # hero copy + 3D canvas
+    About.jsx
+    TechUniverse.jsx
+    Skills.jsx
+    Projects.jsx
+    Journey.jsx
+    Principles.jsx
+    GithubStats.jsx
+    Contact.jsx
+    Footer.jsx
+  data/
+    portfolioData.js   # ALL editable content lives here — name, projects, skills, timeline, links
+  index.css        # Tailwind layers + global styles + design tokens (glass, gradients, grid)
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Customizing content
 
-### `npm run build`
+Everything text-based (name, bio, project descriptions, skills, timeline, links) lives in
+`src/data/portfolioData.js`. Edit that file and the whole site updates — no need to touch components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To wire up your real CV, drop a PDF at `public/Nursultan_Mustapaev_CV.pdf` (the "Download CV" button in
+`Hero.jsx` already points there), or update the `href` to your hosted resume link.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To change the accent color or type scale, edit `tailwind.config.js` (`colors.gold`, `fontFamily`) — every
+component pulls from those tokens rather than hardcoded values.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deploying
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The `dist/` folder from `npm run build` is static and can be deployed as-is to Vercel, Netlify, Firebase
+Hosting, or any static host.
