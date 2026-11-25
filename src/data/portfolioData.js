@@ -1,23 +1,22 @@
 export const PROFILE = {
   name: "Nursultan Mustapaev",
   role: "Full Stack Developer",
-  status: "Available for opportunities",
+  status: "Open to internships and part-time work",
   summary:
-    "I build modern web and mobile applications from idea to deployment. I create complete digital products including frontend interfaces, backend systems, databases and cloud solutions.",
+    "Student developer in Japan. I build web and mobile products from database to interface: a café platform with an API, a website and a mobile app, plus smaller React projects.",
   heroDescription:
-    "I create modern web applications, mobile applications and complete digital solutions using modern technologies.",
+    "I build web and mobile products end to end: NestJS and PostgreSQL on the back, Next.js and React Native on the front.",
   about: [
-    "I am a Full Stack Developer passionate about building scalable applications and solving real-world problems.",
-    "I work across frontend, backend, mobile development, databases and deployment.",
-    "I enjoy transforming ideas into complete digital products.",
+    "I am a student in Maebashi, Japan, and a full stack developer.",
+    "My biggest project is Cafe Platform: a NestJS and PostgreSQL API, a Next.js website for guests and venue owners, and an Expo mobile app in three languages.",
+    "I also build smaller React apps on Supabase, and I am working toward a career in security.",
   ],
-  focus: "Web, Mobile and Software Development",
-  email: "hello@nursultan.dev",
-  github: "https://github.com/nursultan-dev",
-  linkedin: "https://linkedin.com/in/nursultan-mustapaev",
+  focus: "Web and mobile products, with an interest in security",
+  email: "nursutanmusa007@gmail.com",
+  github: "https://github.com/Nukesul",
 };
 
-export const HERO_TECH = ["React", "Node.js", "Python", "Java", "Docker", "Firebase"];
+export const HERO_TECH = ["React", "Next.js", "NestJS", "PostgreSQL", "React Native", "Docker"];
 
 export const TECH_UNIVERSE = [
   {
@@ -25,41 +24,42 @@ export const TECH_UNIVERSE = [
     angle: 0,
     items: [
       { name: "React", detail: "Component-driven UI for fast, interactive interfaces." },
-      { name: "JavaScript", detail: "Core language for dynamic, in-browser behavior." },
-      { name: "TypeScript", detail: "Typed superset that keeps large codebases reliable." },
+      { name: "Next.js", detail: "App Router websites with server rendering and SEO files." },
+      { name: "TypeScript", detail: "Typed code that keeps larger codebases reliable." },
+    ],
+  },
+  {
+    group: "Mobile",
+    angle: 72,
+    items: [
+      { name: "React Native", detail: "One codebase for iOS and Android apps." },
+      { name: "Expo", detail: "Builds, releases and an APK workflow for the café app." },
     ],
   },
   {
     group: "Backend",
-    angle: 72,
-    items: [
-      { name: "Node.js", detail: "JavaScript runtime powering scalable server logic." },
-      { name: "Express", detail: "Minimal framework for building REST APIs quickly." },
-    ],
-  },
-  {
-    group: "Languages",
     angle: 144,
     items: [
-      { name: "Python", detail: "General-purpose language for scripting and services." },
-      { name: "Java", detail: "Robust, object-oriented language for backend systems." },
+      { name: "NestJS", detail: "Structured Node.js API with sessions-based auth." },
+      { name: "Node.js", detail: "JavaScript runtime for server logic and scripts." },
+      { name: "Python", detail: "Scripting and small services." },
     ],
   },
   {
     group: "Database",
     angle: 216,
     items: [
-      { name: "Firebase", detail: "Realtime backend-as-a-service for rapid product builds." },
-      { name: "MongoDB", detail: "Document database for flexible, scalable data models." },
-      { name: "SQL", detail: "Relational querying for structured, transactional data." },
+      { name: "PostgreSQL", detail: "Relational data for orders, menus and venues." },
+      { name: "Prisma", detail: "Typed database access and migrations." },
+      { name: "Supabase", detail: "Hosted Postgres, auth and storage with row level security." },
     ],
   },
   {
     group: "DevOps",
     angle: 288,
     items: [
-      { name: "Docker", detail: "Containerization for consistent, portable deployments." },
-      { name: "Linux", detail: "Operating system backbone for servers and tooling." },
+      { name: "Docker", detail: "Containers for running the API and database." },
+      { name: "GitHub Actions", detail: "Workflows for deploys and builds." },
       { name: "Git", detail: "Version control for tracking and collaborating on code." },
     ],
   },
@@ -69,82 +69,88 @@ export const SKILLS = [
   {
     title: "Frontend Development",
     description: "Interfaces that feel fast, responsive and considered.",
-    items: ["React", "React Native", "Next.js", "HTML", "CSS", "JavaScript", "TypeScript"],
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
+  },
+  {
+    title: "Mobile Development",
+    description: "Cross-platform apps with several languages and release builds.",
+    items: ["React Native", "Expo", "EAS builds"],
   },
   {
     title: "Backend Development",
-    description: "Server architecture built to scale and stay maintainable.",
-    items: ["Node.js", "Express", "REST API"],
-  },
-  {
-    title: "Programming",
-    description: "Multi-language fluency across scripting and systems work.",
-    items: ["Python", "Java", "JavaScript"],
+    description: "APIs with authentication, validation and a real database.",
+    items: ["NestJS", "Node.js", "REST API", "Python"],
   },
   {
     title: "Database",
-    description: "Data modeling for both relational and document stores.",
-    items: ["Firebase", "MongoDB", "SQL"],
+    description: "Schemas, migrations and access rules.",
+    items: ["PostgreSQL", "Prisma", "Supabase", "Row Level Security"],
   },
   {
-    title: "DevOps & Cloud",
-    description: "Shipping and running software reliably in production.",
-    items: ["Docker", "Linux", "Git", "Cloud"],
+    title: "DevOps & Tooling",
+    description: "Reproducible setups and automated checks.",
+    items: ["Docker", "GitHub Actions", "Git", "ESLint"],
   },
 ];
 
 export const PROJECTS = [
   {
     id: "01",
-    title: "Food Delivery Application",
+    title: "Cafe Platform",
     description:
-      "Mobile food ordering application with modern interface, categories and database integration.",
-    tech: ["React Native", "Expo", "Firebase", "JavaScript"],
-    features: ["Product catalog", "Categories", "Database", "Mobile UI"],
+      "A marketplace where guests find cafés, read menus and order, and venue owners run their café from a cabinet. One API serves the website and the mobile app.",
+    tech: ["NestJS", "Prisma", "PostgreSQL", "Next.js", "Expo", "Docker"],
+    features: ["REST API with sessions auth", "Owner cabinet and admin moderation", "Kyrgyz, English and Russian", "Private repositories"],
   },
   {
     id: "02",
-    title: "Online Store Platform",
-    description: "E-commerce application with product management, search and responsive interface.",
-    tech: ["React", "JavaScript", "Bootstrap", "API", "Firebase"],
-    features: ["Product management", "Search", "Responsive UI", "API integration"],
+    title: "Memoris",
+    description:
+      "A memory book for a class of 20 people from 8 countries. Each person has a cabinet with a portrait, photos, texts and notes to classmates.",
+    tech: ["React 19", "Vite", "Supabase", "GitHub Pages"],
+    features: ["Demo mode without a backend", "Photo storage", "Access rules in SQL", "Automated deploy"],
+    link: "https://github.com/Nukesul/memory",
   },
   {
     id: "03",
-    title: "Interactive Comments System",
-    description: "Dynamic comments system with replies, animations and user interaction.",
-    tech: ["React", "Firebase", "CSS Animation"],
-    features: ["Threaded replies", "Live updates", "Micro-animations"],
+    title: "Craft Menu",
+    description:
+      "A café menu site with a protected admin panel to manage categories, products, size variants and photos.",
+    tech: ["React", "Tailwind CSS", "Supabase"],
+    features: ["Supabase Auth login", "Row Level Security policies", "Image upload", "Routing test"],
+    link: "https://github.com/Nukesul/Craft",
   },
   {
     id: "04",
-    title: "Full Stack Application",
-    description: "Complete application with frontend, backend and database architecture.",
-    tech: ["React", "Node.js", "Express", "Database", "Docker"],
-    features: ["End-to-end architecture", "REST API", "Containerized deploy"],
+    title: "Noor Quran",
+    description:
+      "A calm Quran reading app built from a written roadmap, with a design brief where every screen and animation has a purpose.",
+    tech: ["Expo", "React Native", "TypeScript"],
+    features: ["Docs-driven roadmap", "Reader feature", "In development"],
+    link: "https://github.com/Nukesul/noor-quran",
   },
 ];
 
 export const JOURNEY = [
   {
-    year: "2025",
-    title: "Started Web Development",
-    items: ["HTML", "CSS", "JavaScript"],
+    year: "Web",
+    title: "Frontend foundations",
+    items: ["HTML", "CSS", "JavaScript", "React"],
   },
   {
-    year: "2026",
-    title: "React & Mobile Development",
-    items: ["React Native", "Firebase"],
+    year: "Apps",
+    title: "Supabase products",
+    items: ["Memoris", "Craft Menu", "Supabase"],
   },
   {
-    year: "2026",
-    title: "Backend Development",
-    items: ["Node.js", "Python", "Java"],
+    year: "Platform",
+    title: "Cafe Platform",
+    items: ["NestJS", "Prisma", "PostgreSQL", "Next.js", "Expo"],
   },
   {
-    year: "2026",
-    title: "Advanced Development",
-    items: ["Docker", "Cloud", "Full Stack Architecture"],
+    year: "Next",
+    title: "Security",
+    items: ["Web security", "Ethical hacking"],
   },
 ];
 
@@ -156,9 +162,9 @@ export const PRINCIPLES = [
 ];
 
 export const GITHUB_STATS = [
-  { label: "Projects", value: "10+" },
-  { label: "Technologies", value: "15+" },
-  { label: "Repositories", value: "GitHub" },
+  { label: "Repositories", value: "50+" },
+  { label: "Main project", value: "Cafe Platform" },
+  { label: "Profile", value: "Nukesul" },
 ];
 
 export const NAV_LINKS = [

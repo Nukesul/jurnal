@@ -26,7 +26,15 @@ export default function Projects() {
                   />
                 </div>
 
-                <h3 className="mt-4 text-xl font-semibold text-white">{project.title}</h3>
+                <h3 className="mt-4 text-xl font-semibold text-white">
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">
+                      {project.title}
+                    </a>
+                  ) : (
+                    project.title
+                  )}
+                </h3>
                 <p className="mt-3 text-sm text-mist leading-relaxed">{project.description}</p>
 
                 <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2">

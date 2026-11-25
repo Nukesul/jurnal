@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import { PROFILE } from "../data/portfolioData";
 
@@ -12,7 +12,7 @@ export default function Contact() {
             Let's build something <span className="text-gradient">amazing</span> together.
           </h2>
           <p className="mt-5 text-mist max-w-lg mx-auto">
-            Open to full stack roles, freelance builds and collaborations across web, mobile and cloud.
+            Open to internships and part-time work in web and mobile development.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -23,14 +23,6 @@ export default function Contact() {
               className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-white hover:border-gold/50 transition-colors"
             >
               <Github size={16} /> GitHub
-            </a>
-            <a
-              href={PROFILE.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-white hover:border-gold/50 transition-colors"
-            >
-              <Linkedin size={16} /> LinkedIn
             </a>
             <a
               href={`mailto:${PROFILE.email}`}
